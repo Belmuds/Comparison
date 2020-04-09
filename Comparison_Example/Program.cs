@@ -8,19 +8,24 @@ namespace Comparison_Example
         static void Main(string[] args)
         {
             List < Product > list = new List<Product>();
-            Product p1 = new Product("TV", 900.00);
-            Product p2 = new Product("Notebook", 1200.00);
-            Product p3 = new Product("Tablet", 450.00);
-            list.Add(p1);
-            list.Add(p2);
-            list.Add(p3);
+           //Product p1 = new Product("TV", 900.00);
+            //Product p2 = new Product("Notebook", 1200.00);
+            //Product p3 = new Product("Tablet", 450.00);
+            list.Add(new Product("TV", 900.00));
+            list.Add(new Product("Notebook", 1200.00));
+            list.Add(new Product("Tablet", 450.00));
 
-            list.Sort(); //Icomparable
+            list.Sort(Compareproducts); //Icomparable
 
             foreach (Product p in list)
             {
                 Console.WriteLine(p);
             }
+        }
+
+        static int Compareproducts(Product p1, Product p2)
+        {
+            return p1.Name.ToUpper().CompareTo(p2.Name.ToUpper());
         }
     }
 }
